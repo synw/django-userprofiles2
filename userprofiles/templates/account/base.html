@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block layout_top %}
+<div class="row">
+	<div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "My account" %}</h1>
+
+<ul class="nav nav-tabs">
+  <li class="{% block account_nav_email %}{% endblock %}">
+    <a href="{% url 'account_email' %}">{% trans 'E-mail Addresses' %}</a>
+  </li>
+  <li class="{% block account_nav_change_password %}{% endblock %}">
+    <a href="{% url 'account_change_password' %}">{% trans 'Change Password' %}</a>
+  </li>
+  {% url 'socialaccount_connections' as connections_url %}
+  {% if connections_url %}
+  <li class="{% block account_nav_socialaccount_connections %}{% endblock %}">
+    <a href="{{ connections_url }}">{% trans "Associated social accounts" %}</a>
+  </li>
+  {% endif %}
+</ul>
+{% block account_content %}
+{% endblock %}
+
+{% endblock %}
+
+{% block layout_bottom %}
+	</div>
+</div>
+{% endblock %}

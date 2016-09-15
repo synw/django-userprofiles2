@@ -1,0 +1,36 @@
+{% extends "account/base.html" %}
+
+{% load bootstrap socialaccount %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+
+<p class="gc gds-l">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+{% include "socialaccount/snippets/provider_list.html" %}
+{% comment %}
+{% for provider in socialaccount.providers %}
+<div class="gf gc gds">
+	<div class="gi grs-l gtv btn btn-primary btn-fb">
+	  	<a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
+	     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+	    	<i class="fa fa-facebook fa-lg" style="color:blue"></i>&nbsp;Se connecter avec Facebook
+	    </a>
+	</div>
+</div>
+{% endcomment %}
+
+<form id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form|bootstrap }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <div class="form-actions">
+  <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+  </div>
+</form>
+
+{% endblock %}
