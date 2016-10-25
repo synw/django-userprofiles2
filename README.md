@@ -14,10 +14,11 @@ mkdir static/userprofiles/avatars
 Installed apps:
 
    ```python
-'userprofiles',
 'allauth',
 'allauth.account',
 'allauth.socialaccount',
+'avatar',
+'userprofiles',
   ```
 
 Note: 'userprofiles' must be loaded before the allauth apps.
