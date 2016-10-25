@@ -7,8 +7,8 @@ To install:
    ```bash
 pip install django-allauth django-avatar django-bootstrap3 django-bootstrap-form
 git install git+https://github.com/synw/django-userprofiles.git
-mkdir static/userprofiles
-mkdir static/userprofiles/avatars
+mkdir media/userprofiles
+mkdir media/userprofiles/avatars
   ```
   
 Installed apps:
