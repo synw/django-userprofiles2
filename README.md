@@ -21,8 +21,6 @@ Installed apps:
 'userprofiles',
   ```
 
-Note: 'userprofiles' must be loaded before the allauth apps.
-
 Urls:
 
    ```python
