@@ -1,6 +1,6 @@
 # Django Userprofiles
 
-User profiles management that works with [Django Allauth](https://github.com/pennersr/django-allauth)
+User profiles management that work with [Django Allauth](https://github.com/pennersr/django-allauth)
 
 To install:
 
