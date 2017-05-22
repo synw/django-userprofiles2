@@ -18,8 +18,14 @@
 	        </form>
 	    {% endif %}
 	    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
-	        {{ upload_avatar_form|bootstrap }}
-	        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+	        <div class="form-group">
+	        	{{ upload_avatar_form|bootstrap }}
+	        </div>
+	        <div class="form-group">
+		        <p>{% csrf_token %}
+		        	<input type="submit" value="{% trans "Upload New Image" %}" />
+		        </p>
+	        </div>
 	    </form>
 	    <div class="text-center" style="margin-top:2.5em">
 	    	<a href="javascript:history.back()" class="btn btn-lg btn-default">{% trans "Back" %}</a>
