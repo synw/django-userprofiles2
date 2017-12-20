@@ -4,9 +4,10 @@ User profiles management that work with [Django Allauth](https://github.com/penn
 
 To install:
 
+Clone and:
+
    ```bash
-pip install django-allauth django-avatar django-bootstrap3 django-bootstrap-form
-git install git+https://github.com/synw/django-userprofiles.git
+pip install django-allauth django-avatar django-bootstrap3 django-bootstrap-form django-braces
 mkdir media/userprofiles
 mkdir media/userprofiles/avatars
   ```
@@ -14,19 +15,28 @@ mkdir media/userprofiles/avatars
 Installed apps:
 
    ```python
+'django.contrib.sites.models.Site',
+'braces',
 'allauth',
 'allauth.account',
 'allauth.socialaccount',
+'bootstrap3',
+'bootstrapform',
 'avatar',
 'userprofiles',
   ```
+  
+Be sure to have ``SITE_ID = 1`` in settings.
 
 Urls:
 
    ```python
 url(r'^avatar/', include('avatar.urls')),
+url(r'^account/', include('allauth.urls')),
 url(r'^profile/', include('userprofiles.urls')),
   ```
+  
+Note: you must have Bootstrap and Jquery loaded for the templates to work properly.
 
 Example settings for Allauth:
 
