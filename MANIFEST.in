@@ -1,0 +1,3 @@
+recursive-include userprofiles/templates *
+recursive-include userprofiles/migrations *
+recursive-include userprofiles/locale *
