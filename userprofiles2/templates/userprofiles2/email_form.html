@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% load staticfiles bootstrap %}
+{% load staticfiles i18n %}
 
-{% block title %}Mon compte > Email{% endblock %}
+{% block title %}{% trans 'My account > Email' %}{% endblock %}
 
 {% block content %}
 <div class="row">
 	<div class="col-xs-12 col-md-offset-1 col-md-10 col-md-offset-1 col-lg-offset-2 col-lg-8 col-lg-offset-2">
-		<h1>Email</h1>
+		<h1>{% trans 'Email' %}</h1>
 		<form action="" method="post">{% csrf_token %}
-		    {{ form|bootstrap }}
+		    {{ form }}
 		    {% if user.profile.email_is_verified %}
-		    	<input type="submit" class="btn btn-primary" value="Changer et revérifier l'email" />
+		    	<input type="submit" class="btn btn-primary" value="{% trans 'Change and reverify email' %}" />
 		    {% else %}
-		    	<input type="submit" class="btn btn-primary" value="Vérifier l'email" />
+		    	<input type="submit" class="btn btn-primary" value="{% trans 'Verify email' %}" />
 		    {% endif %}
 		</form>	
 	</div>

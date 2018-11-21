@@ -3,7 +3,7 @@ from django.conf import settings
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from allauth.account.signals import user_signed_up, email_confirmed
-from userprofiles.models import UserProfile
+from .models import UserProfile
 
 
 @receiver(user_signed_up, dispatch_uid="user_signed_up")
@@ -33,7 +33,7 @@ def set_email_confirmed(request, **kwargs):
     profile = UserProfile.objects.get(user=user)
     profile.email_is_verified = True
     profile.completion_level = profile.get_completion_level()
-    profile.save()  
+    profile.save()
     if settings.DEBUG:
         print('Email set as verified')
     return

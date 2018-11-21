@@ -1,5 +1,2 @@
 django-allauth
 django-avatar
-django-bootstrap3
-django-bootstrap-form
-django-braces

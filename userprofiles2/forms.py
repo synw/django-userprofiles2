@@ -3,19 +3,18 @@
 from django import forms
 from django.http import Http404
 from django.contrib.auth.models import User
-from userprofiles.models import UserProfile
+from .models import UserProfile
 
 
 class IdentiteForm(forms.ModelForm):
     first_name = forms.CharField(max_length=256)
     last_name = forms.CharField(max_length=256)
 
-
     class Meta:
         model = UserProfile
-        fields = ('first_name', 'last_name','gender','phone',)
+        fields = ('first_name', 'last_name', 'gender', 'phone',)
         widgets = {'phone': forms.TextInput()}
-        
+
     def __init__(self, *args, **kwargs):
         super(IdentiteForm, self).__init__(*args, **kwargs)
         try:
@@ -28,14 +27,14 @@ class IdentiteForm(forms.ModelForm):
         self.fields['gender'].required = True
         self.fields['phone'].required = True
         return
-        
-        
+
+
 class EmailForm(forms.ModelForm):
 
     class Meta:
         model = User
         fields = ['email']
-        
+
     def __init__(self, *args, **kwargs):
         super(EmailForm, self).__init__(*args, **kwargs)
         self.fields['email'].required = True

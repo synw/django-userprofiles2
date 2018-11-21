@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n staticfiles bootstrap avatar_tags %}
+{% load i18n staticfiles avatar_tags %}
 
 {% block title %}{% trans "My profile: Identity" %}{% endblock %}
 
@@ -13,7 +13,7 @@
 		</div>
 		<h1>{{ user.username }} : {% trans "Identity" %}</h1>
 		<form action="" class="form-horizontal" method="post">{% csrf_token %}
-		    {{ form|bootstrap }}
+		    {{ form }}
 		    <div style="margin-top:2.5em">
 		    	<input type="submit" class="btn btn-primary btn-lg pull-right" value="{% trans "Save" %}" />
 		    	<a href="javascript:history.back()" class="btn btn-lg btn-default">{% trans "Back" %}</a>
