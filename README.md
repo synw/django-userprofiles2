@@ -26,9 +26,9 @@ Be sure to have ``SITE_ID = 1`` in settings.
 Urls:
 
    ```python
-url(r'^avatar/', include('avatar.urls')),
-url(r'^account/', include('allauth.urls')),
-url(r'^profile/', include('userprofiles.urls')),
+path('avatar/', include('avatar.urls')),
+path('account/', include('allauth.urls')),
+path('profile/', include('userprofiles2.urls')),
   ```
 
 Example settings for Allauth:
